@@ -1,8 +1,9 @@
-const hora = 14;
+const hora = 22;
 
-if (hora <= 12)  {
-    console.log('Bom Dia!');
-}
-else {
-    console.log('Boa Tarde')
+if (hora >= 2 && hora <= 11) {
+	console.log('Bom Dia');
+} else if (hora > 11 && hora <= 17){
+		console.log('Boa Tarde'); 
+} else {
+		console.log('Boa Noite');
 }
