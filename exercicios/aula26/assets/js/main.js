@@ -35,8 +35,25 @@ function despedida() {
 	console.log('Até Logo!');
 }
 // Chamando a função saudacao e passando a função despedida como callback
-saudacao('Maria', despedida); */
+saudacao('Maria', despedida);
 
 (function(parametro) {
 	console.log(parametro);
 })('argumento');
+*/
+
+function criaCarro(modelo, preco) {
+	const desconto = preco > 50000 ? 0.1 : 0.05;
+	return {
+	modelo,
+	preco,
+	precoComDesconto() {
+		return this.preco - this.preco * desconto;
+	}
+	};
+}
+const carro1 = criaCarro('SUV', 60000);
+const carro2 = criaCarro('Hatch', 40000);
+
+console.log(carro1.precoComDesconto());
+console.log(carro2.precoComDesconto());
