@@ -1,39 +1,27 @@
-@charset "UTF-8";
-
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
-
 :root {
-  --primary-color: #0B260A;
+  --primary-color: rgb(17, 86, 102);
   --primary-color-darker: rgb(9, 48, 56);
 }
 
 * {
   box-sizing: border-box;
   outline: 0;
-  font-family: 'Share Tech Mono', serif;
-  color: #94F29A;
-  margin: 0px;
-  padding: 0px;
 }
 
 body {
   margin: 0;
   padding: 0;
   background: var(--primary-color);
+  font-family: 'Open sans', sans-serif;
   font-size: 1.3em;
   line-height: 1.5em;
 }
-.container > h1 {
-  padding: 10px;
-  text-align: center;
-  font-size: 2em;
-}
+
 .container {
   max-width: 640px;
   margin: 50px auto;
-  background: #124010;
+  background: #fff;
   padding: 20px;
   border-radius: 10px;
 }
@@ -57,7 +45,7 @@ form input:focus {
 form button {
   border: none;
   background: var(--primary-color);
-  color: var(--primary-color);
+  color: #fff;
   font-size: 18px;
   font-weight: 700;
   height: 50px;
@@ -67,10 +55,4 @@ form button {
 
 form button:hover {
   background: var(--primary-color-darker);
-}
-.btn-tarefa, .input-tarefa, .apagar {
-  background: var(--primary-color);
-  border-radius: 3px;
-  padding: 5px 10px;
-  margin-top: 20px;
 }
