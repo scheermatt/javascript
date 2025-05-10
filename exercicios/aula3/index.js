@@ -88,7 +88,28 @@ console.log(pares);
 console.log(dobrados);
 console.log(somados);
 console.log(tudo);
-*/
+
 const frutas = ['maçã', 'banana', 'laranja'];
 
 frutas.forEach(fruta => console.log(fruta));
+
+function Produto(nome, preco, estoque) {
+    this.nome = nome;
+    this.preco = preco;
+
+    Object.defineProperty(this, 'estoque', {
+        enumerable: true,
+        configurable: true
+
+    });
+}
+
+const p1 = new Produto('Camiseta', 50, 3);
+console.log(Object.keys(p1));
+
+for (let chave in p1) {
+    console.log(chave);
+}
+*/
+
+
