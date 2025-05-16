@@ -8,21 +8,18 @@ console.log(1234.56);
 console.log(35, 42.87, 'Matheus');
 */
 
-class Pessoa {
-  constructor(nome) {
-	this.nome = nome;
-  }
-  
-  saudacao() {
-	return `Olá, meu nome é ${this.nome}`;
-  }
-  
-  // Método estático
-  static criarPessoa(nome) {
-	return new Pessoa(nome);
-  }
+function rand(min, max) {
+  min *= 1000;
+  max *= 1000;
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
-// Chamando o método estático diretamente na classe:
-const pessoa2 = Pessoa.criarPessoa("Ana");
-console.log(pessoa2.saudacao()); // Saída: "Olá, meu nome é Ana"
+function esperaAi(msg, tempo) {
+  return new Promise((resolve, reject) => {
+    if (typeof msg !== 'string') reject(false);
+
+    setTimeout(() => {
+      resolve(msg);
+    }, tempo);
+  });
+}
