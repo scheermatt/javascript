@@ -10,6 +10,10 @@ mongoose.connect(process.env.CONNECTIONSTRING)
     })
     .catch(e => console.log('Erro ao conectar no MongoDB', e));
 
+const session = require('express-session');
+const mongoStore = require('connect-mongo');
+const flash = require('connect-flash');
+
 const routes = require('./routes');
 const path = require('path');
 const meuMiddleware = require('./src/middlewares/middleware');
@@ -19,11 +23,22 @@ const meuMiddleware = require('./src/middlewares/middleware');
 // http://meusite.com/ <- GET -> Entregue a página /
 // http://meusite.com/sobre <- GET -> Entregue a página /sobre
 // http://meusite.com/contato <- GET -> Entregue a página /contato
+const sessionOptions = session({
+    secret: 'meu segredo',
+    store: mongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING }),
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7, // 7 dias
+        httpOnly: true // Não permite acesso ao cookie via JavaScript
+    }
+});
+app.use(sessionOptions);
+app.use(flash());
 
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, 'public')));
-
 
 app.set('views', path.resolve(__dirname, 'src','views'));
 app.set('view engine', 'ejs');

@@ -2,9 +2,11 @@
 
 exports.paginaInicial = (req, res) => {
     res.render('index');
+    return;
 }
 
 
 exports.trataPost = (req, res) => {
-    res.send(`Nome recebido: ${req.body.nome}`);
+    res.send(req.body);
+    return;
 }
